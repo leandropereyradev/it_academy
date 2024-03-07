@@ -1,9 +1,6 @@
 package n1ejercicio3;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -12,8 +9,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        String rutaArchivo = "C:\\Users\\leand\\Desktop\\Cursos\\Java\\IT Academy\\Sprint01\\Tarea_S1_03\\src\\n1ejercicio3\\countries.txt";
-        File archivo = new File(rutaArchivo);
+        String rutaRelativa = System.getProperty("user.dir") + "\\Sprint01\\Tarea_S1_03\\src";
+        String archivoPaises = "\\countries.txt";
+        String archivoRegistroJugadores = "\\classificacio.txt";
+
+        File archivo = new File(rutaRelativa + archivoPaises);
 
         Map<String, String> pais_capital = new HashMap<>();
 
@@ -45,6 +45,14 @@ public class Main {
 
         while(oportunidades > 0)  {
 
+            if(oportunidades < 10 && oportunidades > 1) {
+                System.out.println("\n\n" + oportunidades + " intentos más!");
+
+            } else if (oportunidades == 1){
+                System.out.println("\n\n" + "Último intento!");
+
+            }
+
             oportunidades --;
 
             int indiceAleatorio = new Random().nextInt(pais_capital.size());
@@ -69,9 +77,10 @@ public class Main {
 
                 if (oportunidades > 0) {
                     System.out.println("Correcto! Vamos por otra más!");
-                }
+                } else {
 
-                System.out.println("Correcto!");
+                    System.out.println("Correcto!");
+                }
 
                 puntaje ++;
 
@@ -91,7 +100,32 @@ public class Main {
 
         }
 
-        System.out.println(puntaje);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaRelativa + archivoRegistroJugadores, true))) {
+
+            writer.write(nombre + "," + puntaje);
+            writer.newLine();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+        if (puntaje == 10) {
+            System.out.println("\nExcelente, " + nombre + "! Has acertado a todas las capitales (O.O)!");
+            System.out.println("Capitales acertadas: " + puntaje);
+
+        } else if (puntaje < 10 && puntaje >= 6) {
+            System.out.println("\nMuy bien, " + nombre + "! Felicidades ^_^?");
+            System.out.println("Capitales acertadas: " + puntaje);
+
+        } else if (puntaje < 6 && puntaje >= 3) {
+            System.out.println("\nMuy bien, " + nombre + "! pero... como vamos con geofrafía U.U?");
+            System.out.println("Capitales acertadas: " + puntaje);
+
+        }else {
+            System.out.println("\nBueno... bueh, " + nombre + "... Haré como que aquí no ha sucedido nada -.-");
+            System.out.println("Capitales acertadas: " + puntaje);
+        }
 
     }
 }
