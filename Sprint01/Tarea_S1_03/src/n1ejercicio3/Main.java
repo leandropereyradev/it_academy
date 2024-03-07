@@ -73,30 +73,10 @@ public class Main {
             System.out.println("Cual es la capital de " + pais + "?");
             String respuesta = entrada.nextLine();
 
-            if (respuesta.equalsIgnoreCase(capital)) {
+            CheckRespuesta chechRespuesta = new CheckRespuesta(respuesta, capital, oportunidades, puntaje);
+            chechRespuesta.getCheckRespuesta();
 
-                if (oportunidades > 0) {
-                    System.out.println("Correcto! Vamos por otra más!");
-                } else {
-
-                    System.out.println("Correcto!");
-                }
-
-                puntaje ++;
-
-            } else {
-
-                if (oportunidades > 0){
-                    System.out.println(
-                            "No! La capital es "
-                            + capital + ". Aún te quedan "
-                            + oportunidades + " oportunidades más!");
-                } else {
-
-                    System.out.println("No! La capital es " + capital + ". Gracias por jugar!");
-                }
-
-            }
+            puntaje = chechRespuesta.getPuntaje();
 
         }
 
@@ -110,22 +90,8 @@ public class Main {
             e.printStackTrace();
         }
 
-        if (puntaje == 10) {
-            System.out.println("\nExcelente, " + nombre + "! Has acertado a todas las capitales (O.O)!");
-            System.out.println("Capitales acertadas: " + puntaje);
-
-        } else if (puntaje < 10 && puntaje >= 6) {
-            System.out.println("\nMuy bien, " + nombre + "! Felicidades ^_^?");
-            System.out.println("Capitales acertadas: " + puntaje);
-
-        } else if (puntaje < 6 && puntaje >= 3) {
-            System.out.println("\nMuy bien, " + nombre + "! pero... como vamos con geofrafía U.U?");
-            System.out.println("Capitales acertadas: " + puntaje);
-
-        }else {
-            System.out.println("\nBueno... bueh, " + nombre + "... Haré como que aquí no ha sucedido nada -.-");
-            System.out.println("Capitales acertadas: " + puntaje);
-        }
+        MensajeFinal mensaje = new MensajeFinal(puntaje, nombre);
+        mensaje.getMensaje();
 
     }
 }
