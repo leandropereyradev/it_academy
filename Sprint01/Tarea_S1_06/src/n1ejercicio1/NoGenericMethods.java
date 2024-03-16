@@ -1,19 +1,19 @@
 package n1ejercicio1;
 
 public class NoGenericMethods {
-    public NoGenericMethods(Object[] objetos) {
+    public NoGenericMethods(Coche[] objetos) {
         setObjetos(objetos);
     }
 
-    private Object[] objetos = new Object[3];
+    private Coche[] objetos = new Coche[3];
 
-    public void setObjetos(Object[] objetos) {
+    public void setObjetos(Coche[] objetos) {
         for (int i = 0; i < objetos.length && i < this.objetos.length; i++) {
             this.objetos[i] = objetos[i];
         }
     }
 
-    public Object[] getObjetos() {
+    public Coche[] getObjetos() {
         return objetos;
     }
 }

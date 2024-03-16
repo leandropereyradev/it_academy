@@ -16,12 +16,8 @@ public class Main {
         System.out.println("Desde el constructor:");
         NoGenericMethods noGenericos = new NoGenericMethods(coches1);
 
-        for (Object obj : noGenericos.getObjetos()) {
-
-            if (obj instanceof Coche) {
-                Coche coche = (Coche) obj;
-                System.out.println("Nombre del coche: " + coche.getNombre());
-            }
+        for (Coche coche : noGenericos.getObjetos()) {
+            System.out.println("Nombre del coche: " + coche.getNombre());
         }
 
         Coche coche4 = new Coche("Ford");
@@ -36,24 +32,8 @@ public class Main {
         System.out.println("\nDesde el Setter:");
         noGenericos.setObjetos(coches2);
 
-        for (Object obj : noGenericos.getObjetos()) {
-
-            if (obj instanceof Coche) {
-                Coche coche = (Coche) obj;
-                System.out.println("Nombre del coche: " + coche.getNombre());
-            }
-        }
-    }
-
-    static class Coche {
-        public Coche(String nombre) {
-            this.nombre = nombre;
-        }
-
-        private String nombre;
-
-        public String getNombre() {
-            return nombre;
+        for (Coche coche : noGenericos.getObjetos()) {
+            System.out.println("Nombre del coche: " + coche.getNombre());
         }
     }
 }
