@@ -1,6 +1,5 @@
 package n1ejercicio3;
 
-import n1ejercicio3.ArrojarExcepcion;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
