@@ -6,11 +6,9 @@ public class Main {
         String saludo = "Hola!";
         int numero = 1;
 
-        Object[] objetos = new Object[3];
-        objetos[0] = persona;
-        objetos[1] = saludo;
-        objetos[2] = numero;
+        GenericMethods.imprimirObjetos(persona, saludo, numero);
 
-        GenericMethods.imprimirObjetos(objetos);
+        System.out.println("\nCambio de orden:");
+        GenericMethods.imprimirObjetos(saludo, numero, persona);
     }
 }
