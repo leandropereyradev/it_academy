@@ -1,17 +1,56 @@
-//package n1ejercicio2;
+package n1ejercicio2;
 
-//import static n1ejercicio2.ListarAlfabeticamente.listarDirectorio;
-
-//import n1ejercicio2.ListarAlfabeticamente;
+import java.io.File;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Por favor, proporciona el directorio como argumento.");
-            return;
-        }
+        Scanner entrada = new Scanner(System.in);
 
-        String directorio = args[0];
-        ListarAlfabeticamente.listarDirectorio(directorio, 0);
+        System.out.println("Introduzca la ruta del directorio:");
+        String directorio = entrada.nextLine();
+
+        listarDirectorio(directorio, 0);
+
+        entrada.close();
+    }
+
+    static void listarDirectorio(String dir, int nivel) {
+
+        File directorio = new File(dir);
+        File[] files = directorio.listFiles();
+
+        if (files != null) {
+            Arrays.sort(files);
+
+            for (File file : files) {
+                Date fecha = new Date(file.lastModified());
+
+                if(file.isDirectory()) {
+
+                    for(int i = 0; i < nivel; i++){
+                        System.out.print("_ _ ");
+                    }
+
+                    System.out.println("[D] " + file.getName() + " - Last modification: " + fecha);
+
+                } else {
+
+                    for(int i = 0; i < nivel; i++){
+                        System.out.print("_ _ ");
+                    }
+
+                    System.out.println("[F] " + file.getName() + " - Last modification: " + fecha);
+                }
+
+                if(file.isDirectory()) {
+                    listarDirectorio(file.getPath(), nivel + 1);
+                }
+            }
+        } else {
+            System.out.println("El directorio está vacío o no existe.");
+        }
     }
 }

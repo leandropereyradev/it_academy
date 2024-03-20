@@ -1,17 +1,35 @@
-//package n1ejercicio1;
+package n1ejercicio1;
 
-//import static n1ejercicio1.ListarAlfabeticamente.listarDirectorio;
-
-//import n1ejercicio1.ListarAlfabeticamente;
+import java.io.File;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Por favor, proporciona el directorio como argumento.");
-            return;
-        }
+        Scanner entrada = new Scanner(System.in);
 
-        String directorio = args[0];
-        ListarAlfabeticamente.listarDirectorio(directorio);
+        System.out.println("Introduzca la ruta del directorio:");
+        String directorio = entrada.nextLine();
+
+        listarDirectorio(directorio);
+
+        entrada.close();
+    }
+
+    static void listarDirectorio(String dir) {
+
+        File directorio = new File(dir);
+        File[] files = directorio.listFiles();
+
+        if (files != null) {
+            Arrays.sort(files);
+
+            for (File file : files) {
+                System.out.println(file.getName());
+            }
+
+        } else {
+            System.out.println("El directorio está vacío o no existe.");
+        }
     }
 }

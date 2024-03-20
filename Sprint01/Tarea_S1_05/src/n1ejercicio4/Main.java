@@ -1,36 +1,36 @@
-//package n1ejercicio4;
+package n1ejercicio4;
 
-//import static n1ejercicio3.ListarAlfabeticamente.listarDirectorio;
-
-//import n1ejercicio3.ListarAlfabeticamente;
-
-//import n1ejercicio4.ListarAlfabeticamente;
+import java.io.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Por favor, proporciona el directorio como argumento.");
-            return;
+        Scanner entrada = new Scanner(System.in);
+
+        System.out.println("Introduzca la ruta del archivo .txt a leer sin comillas:");
+        String directorio = entrada.nextLine();
+
+        leerTxt(directorio);
+
+        entrada.close();
+    }
+
+    static void leerTxt(String archivoPath) {
+        File archivo = new File(archivoPath);
+
+        try{
+            FileReader fileReader = new FileReader(archivo);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String lineas;
+
+            while((lineas = bufferedReader.readLine()) != null) {
+                System.out.println(lineas);
+            }
+
+            bufferedReader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        String directorio = args[1];
-
-
-        String flag = args[0];
-
-        switch (flag) {
-            case "-l":
-                ListarAlfabeticamente.listarDirectorio(directorio, 0);
-                break;
-
-            case "-r":
-                ListarAlfabeticamente.leerTxt(directorio);
-                break;
-
-            default:
-            System.out.println("Flag no reconocido.");
-            break;
-        }
-
     }
 }

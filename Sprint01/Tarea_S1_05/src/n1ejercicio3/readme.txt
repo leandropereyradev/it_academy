@@ -16,4 +16,4 @@ Para poder utilizar el método para listar los archivos, ejecutamos el comando "
     Ejemplo:
     java Main
 
-Te solicitará que le pases la ruta a listar para completar la operación.
+Te solicitará que le pases la ruta a listar y la ruta donde quiere guardar el documento .txt que genera.

@@ -1,52 +1,49 @@
-//package n1ejercicio5;
+package n1ejercicio5;
 
-//import static n1ejercicio5.ListarAlfabeticamente.listarDirectorio;
-
-//import n1ejercicio5.ListarAlfabeticamente;
-
-//import n1ejercicio5.ListarAlfabeticamente;
-
-import java.io.File;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Por favor, proporciona el directorio como argumento.");
-            return;
+        Persona persona = new Persona("Leandro", 40);
+
+        serializarDirectorio(persona);
+        deserializarDirectorio();
+    }
+
+    static void serializarDirectorio(Persona persona) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("persona.dat"))) {
+            out.writeObject(persona);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 
-        String directorio = args[1];
+    static void deserializarDirectorio() {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("persona.dat"))) {
+            Persona person = (Persona) in.readObject();
 
-
-        String flag = args[0];
-
-        switch (flag) {
-            case "-l":
-                ListarAlfabeticamente.listarDirectorio(directorio, 0);
-                break;
-
-            case "-r":
-                ListarAlfabeticamente.leerTxt(directorio);
-                break;
-
-            case "-s":
-                File directorioFile = new File(directorio);
-
-                if (directorioFile.isDirectory()) {
-                    File[] files = directorioFile.listFiles();
-                    ListarAlfabeticamente.serializacion(files);
-
-                } else {
-                    System.out.println("El directorio especificado no es válido.");
-
-                }
-
-                break;
-
-            default:
-                System.out.println("Flag no reconocido.");
-                break;
+            System.out.println(person.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
+}
 
+class Persona implements Serializable {
+
+    public Persona(String nombre, int edad){
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    private String nombre;
+    private int edad;
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                '}';
     }
 }

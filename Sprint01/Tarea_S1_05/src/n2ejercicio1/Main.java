@@ -1,4 +1,4 @@
-package n1ejercicio3;
+package n2ejercicio1;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,15 +15,18 @@ public class Main {
         System.out.println("Introduzca la ruta del directorio sin comillas:");
         String directorio = entrada.nextLine();
 
+        System.out.println("Introduzca el nombre del archivo destino:");
+        String nombreArchivo = entrada.nextLine();
+
         System.out.println("Introduzca la ruta donde guardar el archivo generado sin comillas:");
         String destino = entrada.nextLine();
 
-        listarDirectorio(directorio, 0, destino);
+        listarDirectorio(directorio, 0, destino, nombreArchivo);
 
         entrada.close();
     }
 
-    static void listarDirectorio(String dir, int nivel, String destino) {
+    static void listarDirectorio(String dir, int nivel, String destino, String nombreArchivo) {
 
         File directorio = new File(dir);
         File[] files = directorio.listFiles();
@@ -34,7 +37,7 @@ public class Main {
             for (File file : files) {
                 Date fecha = new Date(file.lastModified());
 
-                try (BufferedWriter writer = new BufferedWriter(new FileWriter(destino + "\\directorio.txt", true))) {
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter(destino + "\\" + nombreArchivo + ".txt", true))) {
 
                     if(file.isDirectory()) {
 
@@ -60,7 +63,7 @@ public class Main {
                 }
 
                 if(file.isDirectory()) {
-                    listarDirectorio(file.getPath(), nivel + 1, destino);
+                    listarDirectorio(file.getPath(), nivel + 1, destino, nombreArchivo);
                 }
             }
         } else {
