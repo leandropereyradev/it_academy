@@ -31,6 +31,10 @@ public class Alumno {
     }
 
     public String getInfo() {
-        return "Nombre: " + nombre + "\nEdad: " + edad + "\nCurso: " + curso + "\nNota: " + nota + "\n";
+        return "Nombre: " + nombre
+                + "\nEdad: " + edad
+                + "\nCurso: " + curso
+                + "\nNota: " + nota
+                + "\n";
     }
 }
