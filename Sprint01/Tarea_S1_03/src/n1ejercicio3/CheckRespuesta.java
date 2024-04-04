@@ -2,19 +2,17 @@ package n1ejercicio3;
 
 public class CheckRespuesta {
 
+    private String respuesta;
+    private String capital;
+    private int oportunidades;
+    private int puntaje;
+
     public CheckRespuesta(String respuesta, String capital, int oportunidades, int puntaje) {
         this.respuesta = respuesta;
         this.capital = capital;
         this.oportunidades = oportunidades;
         this.puntaje = puntaje;
     }
-
-    private String respuesta;
-    private String capital;
-
-    private int oportunidades;
-
-    private int puntaje;
 
     public void getCheckRespuesta() {
         if (respuesta.equalsIgnoreCase(capital)) {

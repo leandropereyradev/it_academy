@@ -1,20 +1,27 @@
 package n1ejercicio1.trabajador;
 
+import static n1ejercicio1.FormatoDecimal.formatoDecimal;
+
 public class TrabajadorOnline extends Trabajador{
-    public TrabajadorOnline(String nombre, String apellido, double precioHora, double tarifaPlanaInternet) {
+
+    private final double TARIFA_PLANA = 180.68;
+    public TrabajadorOnline(String nombre, String apellido, double precioHora) {
         super(nombre, apellido, precioHora);
-
-        this.tarifaPlanaInternet = tarifaPlanaInternet;
     }
-
-    private double tarifaPlanaInternet;
 
     @Override
     public double calcularSueldo(double horasTrabajadas) {
-        return super.calcularSueldo(horasTrabajadas) + tarifaPlanaInternet;
+        return horasTrabajadas * super.getPrecioHora() + TARIFA_PLANA;
     }
 
     public double getTarifaPlanaInternet() {
-        return tarifaPlanaInternet;
+        return TARIFA_PLANA;
+    }
+
+    @Override
+    public String getInfo() {
+        return "Sueldo del trabajador online: " + getNombreCompleto() +
+                "\n\tPrecio por hora: " + formatoDecimal(getPrecioHora()) + "€" +
+                "\n\tTarifa Plana Internet: " + formatoDecimal(getTarifaPlanaInternet()) + "€";
     }
 }

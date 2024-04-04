@@ -1,8 +1,8 @@
-package n2ejercicio1;
+package n2ejercicio2;
 
 import java.util.Objects;
 
-public class Restaurante {
+public class Restaurante implements Comparable<Restaurante> {
 
     private String nombre;
     private int puntuacion;
@@ -43,5 +43,17 @@ public class Restaurante {
 
         return puntuacion == restaurante.puntuacion &&
                 Objects.equals(nombre, restaurante.nombre);
+    }
+
+    @Override
+    public int compareTo(Restaurante otroRestaurante) {
+
+        int comparacionPorNombre = this.nombre.compareTo(otroRestaurante.nombre);
+
+        if (comparacionPorNombre != 0) {
+            return comparacionPorNombre;
+        }
+
+        return Integer.compare(this.puntuacion, otroRestaurante.puntuacion);
     }
 }

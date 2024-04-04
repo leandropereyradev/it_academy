@@ -1,5 +1,6 @@
 package n2ejercicio3;
 
-public interface Operacion {
+@FunctionalInterface
+interface Operacion {
     float operacion(float a, float b);
 }

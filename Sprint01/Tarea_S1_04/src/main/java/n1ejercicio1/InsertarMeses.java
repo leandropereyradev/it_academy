@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InsertarMeses {
+    private static final List<String> MESES;
 
     static {
-        meses = new ArrayList<>();
+        MESES = new ArrayList<>();
         crearMeses();
     }
-    private static final List<String> meses;
 
     private static void crearMeses() {
-        meses.addAll(List.of("January", "February", "March",
+        MESES.addAll(List.of("January", "February", "March",
                 "April", "May", "June",
                 "July", "August", "September",
                 "October", "November", "December"));
     }
 
     public static List<String> getMeses() {
-        return meses;
+        return MESES;
     }
 }

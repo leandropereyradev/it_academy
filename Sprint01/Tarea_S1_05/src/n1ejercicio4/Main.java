@@ -1,7 +1,8 @@
 package n1ejercicio4;
 
-import java.io.*;
 import java.util.Scanner;
+
+import static n1ejercicio4.LeerTxt.leerTxt;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,24 +14,5 @@ public class Main {
         leerTxt(directorio);
 
         entrada.close();
-    }
-
-    static void leerTxt(String archivoPath) {
-        File archivo = new File(archivoPath);
-
-        try{
-            FileReader fileReader = new FileReader(archivo);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String lineas;
-
-            while((lineas = bufferedReader.readLine()) != null) {
-                System.out.println(lineas);
-            }
-
-            bufferedReader.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

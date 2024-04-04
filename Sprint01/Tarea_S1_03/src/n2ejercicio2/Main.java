@@ -1,7 +1,5 @@
 package n2ejercicio2;
 
-import n2ejercicio1.Restaurante;
-
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.InputMismatchException;
@@ -66,8 +64,7 @@ public class Main {
                 System.out.println("\n\tCantidad de restaurantes ingresados: " + restaurantes.size() + "\n");
 
                 restaurantes.stream()
-                        .sorted(Comparator.comparing(Restaurante::getNombre)
-                                .thenComparingInt(Restaurante::getPuntuacion))
+                        .sorted()
                         .forEach(restaurante -> System.out.println("\t" + restaurante.getInformacion() + "\n"));
 
                 System.out.println();

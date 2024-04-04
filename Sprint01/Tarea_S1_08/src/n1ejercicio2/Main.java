@@ -14,7 +14,7 @@ public class Main {
 
     }
 
-    static Function<List<String>, List<String>> buscarPalabras = lista -> lista.stream()
+    private static final Function<List<String>, List<String>> buscarPalabras = lista -> lista.stream()
             .filter(cadena -> cadena.toLowerCase().contains("o") && cadena.length() > 5)
             .collect(Collectors.toList());
 }

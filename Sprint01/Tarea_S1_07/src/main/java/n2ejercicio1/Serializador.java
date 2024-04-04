@@ -23,7 +23,7 @@ public class Serializador {
                 Files.createDirectories(rutaCompleta);
 
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("Error: " + e);
                 return;
             }
         }
@@ -36,7 +36,7 @@ public class Serializador {
             System.out.println("Objeto "+ nombreClase + " serializado a JSON correctamente.");
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e);
 
         }
 

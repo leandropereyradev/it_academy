@@ -1,8 +1,8 @@
 package n1ejercicio1;
 
-import n1ejercicio1.instrumentos.Cuerda;
-import n1ejercicio1.instrumentos.Percusion;
-import n1ejercicio1.instrumentos.Viento;
+import n1ejercicio1.instrumento.Cuerda;
+import n1ejercicio1.instrumento.Percusion;
+import n1ejercicio1.instrumento.Viento;
 
 public class Main {
     public static void main(String[] args) {

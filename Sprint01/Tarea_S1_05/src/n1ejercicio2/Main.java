@@ -17,7 +17,7 @@ public class Main {
         entrada.close();
     }
 
-    static void listarDirectorio(String dir, int nivel) {
+    private static void listarDirectorio(String dir, int nivel) {
 
         File directorio = new File(dir);
         File[] files = directorio.listFiles();

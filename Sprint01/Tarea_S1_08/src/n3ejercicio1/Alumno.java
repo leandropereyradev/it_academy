@@ -2,17 +2,17 @@ package n3ejercicio1;
 
 public class Alumno {
 
+    private String nombre;
+    private int edad;
+    private String curso;
+    private double nota;
+
     public Alumno(String nombre, int edad, String curso, double nota) {
         this.nombre = nombre;
         this.edad = edad;
         this.curso = curso;
         this.nota = nota;
     }
-
-    private String nombre;
-    private int edad;
-    private String curso;
-    private double nota;
 
     public String getNombre() {
         return nombre;

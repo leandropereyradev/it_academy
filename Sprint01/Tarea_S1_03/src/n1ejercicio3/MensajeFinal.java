@@ -2,13 +2,13 @@ package n1ejercicio3;
 
 public class MensajeFinal {
 
+    private int puntaje;
+    private String nombre;
+
     public MensajeFinal(int puntaje, String nombre) {
         this.puntaje = puntaje;
         this.nombre = nombre;
     }
-
-    private int puntaje;
-    private String nombre;
 
     public void getMensaje() {
 

@@ -1,12 +1,12 @@
 package n1ejercicio1;
 
 public class Venta {
+    private Producto[] productos;
+    private double total_venta = 0;
 
     public Venta(Producto[] productos) {
         this.productos = productos;
     }
-    private Producto[] productos;
-    private double total_venta = 0;
 
     public double calcularTotal() throws VentaBuidaException {
 

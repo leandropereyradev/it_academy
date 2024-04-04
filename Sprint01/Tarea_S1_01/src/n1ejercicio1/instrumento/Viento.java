@@ -1,16 +1,18 @@
-package n1ejercicio1.instrumentos;
+package n1ejercicio1.instrumento;
 
-public class Viento extends Instrumentos{
+public class Viento extends Instrumento {
+
+    static {
+        System.out.println("Clase InstrumentoViento cargada");
+    }
+
     public Viento(String nombre, double precio) {
         super(nombre, precio);
     }
 
+    @Override
     public String tocar() {
         return "Está sonando un instrumento de viento";
-    }
-
-    static {
-        System.out.println("Clase InstrumentoViento cargada");
     }
 
     public static String metodoStatic() {

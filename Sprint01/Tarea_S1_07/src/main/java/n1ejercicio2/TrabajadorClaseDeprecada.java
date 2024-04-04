@@ -7,6 +7,16 @@ public class TrabajadorClaseDeprecada extends Trabajador {
         super(nombre, apellido, precioHora);
     }
 
+    @Override
+    public double calcularSueldo(double horasTrabajadas) {
+        return horasTrabajadas * super.getPrecioHora();
+    }
+
+    @Override
+    public String getInfo() {
+        return super.getNombreCompleto();
+    }
+
     @Deprecated
     public void metodoDeprecado() {
         System.out.println("Este método está obsoleto.");

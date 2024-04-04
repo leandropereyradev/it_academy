@@ -32,8 +32,7 @@ public class Main {
             bufferedReader.close();
 
         } catch (IOException e) {
-
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
 
         Scanner entrada = new Scanner(System.in);
@@ -86,8 +85,7 @@ public class Main {
             writer.newLine();
 
         } catch (IOException e) {
-
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
 
         MensajeFinal mensaje = new MensajeFinal(puntaje, nombre);

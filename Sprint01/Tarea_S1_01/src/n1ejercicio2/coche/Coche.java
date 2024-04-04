@@ -1,13 +1,18 @@
 package n1ejercicio2.coche;
 
 public class Coche {
-    public Coche(String modelo, double potencia){
-        this.modelo = modelo;
-        this.potencia = potencia;
-    }
     private static final String marca = "Renault";
     private static String modelo;
     private final double potencia;
+
+    static {
+        modelo = "Modelo por defecto";
+    }
+
+    public Coche(String modelo, double potencia){
+        Coche.modelo = modelo;
+        this.potencia = potencia;
+    }
 
     public static String getMarca(){
         return marca;
