@@ -2,33 +2,20 @@ package n1ejercicio1;
 
 public class Venta {
     private Producto[] productos;
-    private double total_venta = 0;
+    private double total_venta;
 
-    public Venta(Producto[] productos) {
+    public Venta(Producto[] productos) throws VentaBuidaException {
         this.productos = productos;
+
+        if (productos.length == 0 || productos == null) {
+            throw new VentaBuidaException("Para hacer una venta primero debes añadir productos");
+        }
     }
 
-    public double calcularTotal() throws VentaBuidaException {
+    public double calcularTotal() {
 
-        try {
-            if(productos.length == 0) {
-                throw new VentaBuidaException("Para hacer una venta primero debes añadir productos");
-            }
-
-            for(Producto producto : productos) {
-                total_venta += producto.getPrecio();
-            }
-
-            Producto lanzarExcepción_OutOfBounds = productos[-1];
-
-        } catch (VentaBuidaException e) {
-            String message = e.getMessage();
-
-            System.out.println(message);
-
-        } catch (ArrayIndexOutOfBoundsException e) {
-
-            System.out.println("Excepción ArrayIndexOutOfBoundsException: " + e.getMessage());
+        for(Producto producto : productos) {
+            total_venta += producto.getPrecio();
         }
 
         return total_venta;
