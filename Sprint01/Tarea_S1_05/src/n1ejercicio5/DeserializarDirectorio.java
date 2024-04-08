@@ -9,8 +9,10 @@ public class DeserializarDirectorio {
             Persona person = (Persona) in.readObject();
 
             System.out.println(person.toString());
+
         } catch (Exception e) {
-            System.out.println("Error: " + e);
+
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }
