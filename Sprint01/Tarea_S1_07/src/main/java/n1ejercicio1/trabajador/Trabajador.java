@@ -2,8 +2,8 @@ package n1ejercicio1.trabajador;
 
 public abstract class Trabajador {
 
-    private String nombre;
-    private String apellido;
+    protected String nombre;
+    protected String apellido;
     protected double precioHora;
 
     public Trabajador(String nombre, String apellido, double precioHora) {

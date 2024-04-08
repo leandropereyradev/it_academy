@@ -12,16 +12,20 @@ public class Main {
         double horasTrabajadasPresencial2 = 240;
         double horasTrabajadasOnline = 80;
 
+        TrabajadorPresencial.setGasolina(20);
+
         TrabajadorPresencial presencial1 = new TrabajadorPresencial("Carlos",
-                "Pérez", 11.35, 20.5);
+                "Pérez", 11.35);
 
         System.out.println(presencial1.getInfo());
         System.out.println("Sueldo total: " + formatoDecimal(presencial1.calcularSueldo(horasTrabajadasPresencial1)) + "€");
 
         System.out.println();
 
+        TrabajadorPresencial.setGasolina(30);
+
         TrabajadorPresencial presencial2 = new TrabajadorPresencial("Alberto",
-                "Gonzalez", 14.5, 35);
+                "Gonzalez", 14.5);
 
         System.out.println(presencial2.getInfo());
         System.out.println("Sueldo total: " + formatoDecimal(presencial2.calcularSueldo(horasTrabajadasPresencial2)) + "€");

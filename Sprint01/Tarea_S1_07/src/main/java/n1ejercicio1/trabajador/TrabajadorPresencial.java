@@ -4,17 +4,15 @@ import static n1ejercicio1.FormatoDecimal.formatoDecimal;
 
 public class TrabajadorPresencial extends Trabajador{
 
-    private static double gasolina;
+    protected static double gasolina;
 
-    static {
-        gasolina = 0;
-    }
-
-    public TrabajadorPresencial(String nombre, String apellido, double precioHora, double ImporteGasolinaConsumida) {
+    public TrabajadorPresencial(String nombre, String apellido, double precioHora) {
         super(nombre, apellido, precioHora);
-        gasolina = ImporteGasolinaConsumida;
     }
 
+    public static void setGasolina(double gasolina) {
+        TrabajadorPresencial.gasolina = gasolina;
+    }
     @Override
     public double calcularSueldo(double horasTrabajadas) {
         return horasTrabajadas * super.getPrecioHora() + gasolina;
