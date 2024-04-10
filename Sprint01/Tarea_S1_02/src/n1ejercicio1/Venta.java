@@ -5,11 +5,11 @@ public class Venta {
     private double total_venta;
 
     public Venta(Producto[] productos) throws VentaBuidaException {
-        this.productos = productos;
-
-        if (productos.length == 0 || productos == null) {
+        if (productos == null || productos.length == 0) {
             throw new VentaBuidaException("Para hacer una venta primero debes añadir productos");
         }
+
+        this.productos = productos;
     }
 
     public double calcularTotal() {
@@ -19,5 +19,11 @@ public class Venta {
         }
 
         return total_venta;
+    }
+
+    public void listarProductos() {
+        for (Producto producto : productos) {
+            System.out.println(producto.getNombre() + " - " + producto.getPrecio() + "€");
+        }
     }
 }
